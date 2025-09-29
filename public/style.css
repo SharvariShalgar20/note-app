@@ -1,0 +1,80 @@
+body, h1, ul, li, form, input, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f6fa;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2f3640;
+}
+
+#notes {
+  list-style-type: none;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+#notes li {
+  background: #ffeaa7;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+#notes li:hover {
+  transform: scale(1.02);
+  background: #fdcb6e;
+}
+
+#noteForm {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+#noteText {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #dcdde1;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#noteText:focus {
+  outline: none;
+  border-color: #00a8ff;
+  box-shadow: 0 0 5px rgba(0,168,255,0.2);
+}
+
+button {
+  background: #00a8ff;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #0097e6;
+}
