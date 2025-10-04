@@ -14,10 +14,8 @@ app.get('/api/notes',(req,res)=>{
 });
 
 app.post('/api/notes',(req,res)=>{
-  const myNote={
-    date:Date.now(),
-    text:req.body.text
-  }
+  const { text, time } = req.body;
+  const myNote = { text, time };
   notes.push(myNote);
   res.json(myNote);
 });
