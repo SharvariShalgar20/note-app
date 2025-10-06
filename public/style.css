@@ -78,3 +78,26 @@ button {
 button:hover {
   background: #0097e6;
 }
+
+.delete-btn {
+  background: #e84118;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  float: right;
+  font-size: 0.9rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #c23616;
+  transform: scale(1.05);
+}
+
+.note-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

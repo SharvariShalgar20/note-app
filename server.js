@@ -15,9 +15,15 @@ app.get('/api/notes',(req,res)=>{
 
 app.post('/api/notes',(req,res)=>{
   const { text, time } = req.body;
-  const myNote = { text, time };
+  const myNote = {id: Date.now(), text, time };
   notes.push(myNote);
   res.json(myNote);
+});
+
+app.delete('/api/notes/:id', (req, res) => {
+  const noteId = parseInt(req.params.id);
+  notes = notes.filter(note => note.id !== noteId);
+  res.json({ success: true, message: 'Note deleted successfully', notes });
 });
 
 app.listen(port,()=>{
