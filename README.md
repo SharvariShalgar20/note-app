@@ -3,7 +3,7 @@
 A simple, clean note-taking web app built with Node.js and Express. Perfect for practicing full-stack fundamentals or showing off a small, real-world project on your GitHub profile. Traditional in spirit (keep things simple + reliable), but ready for modern upgrades. 
 
 
-# 🚀Features
+# Features
 
 Create, read
 
