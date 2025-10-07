@@ -26,6 +26,20 @@ app.delete('/api/notes/:id', (req, res) => {
   res.json({ success: true, message: 'Note deleted successfully', notes });
 });
 
+app.put('/api/notes/:id', (req, res) => {
+  const noteId = parseInt(req.params.id);
+  const { text, time } = req.body;
+
+  const noteIndex = notes.findIndex(note => note.id === noteId);
+  if (noteIndex === -1) {
+    return res.status(404).json({ success: false, message: 'Note not found' });
+  }
+
+  notes[noteIndex].text = text;
+  notes[noteIndex].time = time;
+  res.json({ success: true, message: 'Note updated successfully', note: notes[noteIndex] });
+});
+
 app.listen(port,()=>{
   console.log(`Server is running on port:${port}`);
 });

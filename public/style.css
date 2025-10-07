@@ -101,3 +101,21 @@ button:hover {
   justify-content: space-between;
   align-items: center;
 }
+
+.edit-btn {
+  background: #44bd32;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-right: 8px;
+}
+
+.edit-btn:hover {
+  background: #009432;
+  transform: scale(1.05);
+}
+
