@@ -15,11 +15,7 @@ Traditional in spirit (keeping things simple and reliable) — yet ready for mod
 
 ✏️ Edit Notes – Update existing notes without re-adding them.
 
-🔍 Search / Filter Notes – Quickly find notes by keyword.
-
 💾 JSON-based storage (local + easy setup).
-
-🌐 Optional MongoDB integration (for production use).
 
 
 # 🧩 Tech Stack
