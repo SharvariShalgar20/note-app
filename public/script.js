@@ -37,9 +37,9 @@ function editNote(id, oldText) {
   if (!li) return;
 
   li.innerHTML = `
-    <input type="text" id="editText-${id}" value="${oldText}" style="width:70%">
-    <button onclick="saveEdit(${id})">💾 Save</button>
-    <button onclick="loadNotes()">❌ Cancel</button>
+    <input type="text" id="editText-${id}" value="${oldText}" class="edit-input">
+    <button class="btn save-btn" onclick="saveEdit(${id})">💾 Save</button>
+    <button class="btn cancel-btn" onclick="loadNotes()">❌ Cancel</button>
   `;
 }
 
