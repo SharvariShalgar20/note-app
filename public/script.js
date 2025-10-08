@@ -38,8 +38,8 @@ function editNote(id, oldText) {
 
   li.innerHTML = `
     <input type="text" id="editText-${id}" value="${oldText}" class="edit-input">
-    <button class="btn save-btn" onclick="saveEdit(${id})">💾 Save</button>
-    <button class="btn cancel-btn" onclick="loadNotes()">❌ Cancel</button>
+    <button class="btn save-btn" onclick="saveEdit(${id})">💾</button>
+    <button class="btn cancel-btn" onclick="loadNotes()">❌</button>
   `;
 }
 

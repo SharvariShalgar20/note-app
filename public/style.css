@@ -1,12 +1,13 @@
-body, h1, ul, li, form, input, button {
+/* 🧼 Reset */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f5f6fa;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background: #f8f9fb;
   color: #333;
   min-height: 100vh;
   display: flex;
@@ -17,105 +18,151 @@ body {
 
 h1 {
   font-size: 2rem;
-  margin-bottom: 20px;
-  color: #2f3640;
+  margin-bottom: 25px;
+  color: #222;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
+/* 📝 Notes List */
 #notes {
-  list-style-type: none;
+  list-style: none;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   margin-bottom: 20px;
 }
 
 #notes li {
-  background: #ffeaa7;
-  padding: 12px 15px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: #fff;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1rem;
-  transition: transform 0.2s ease, background 0.3s ease;
+  border: 1px solid #eee;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 #notes li:hover {
-  transform: scale(1.02);
-  background: #fdcb6e;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+/* 🖊 Add Note Form */
 #noteForm {
   display: flex;
   gap: 10px;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
+  margin-bottom: 20px;
 }
 
 #noteText {
   flex: 1;
-  padding: 10px 12px;
-  border: 1px solid #dcdde1;
-  border-radius: 6px;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
   font-size: 1rem;
+  background: #fff;
+  transition: 0.2s ease;
 }
 
 #noteText:focus {
   outline: none;
-  border-color: #00a8ff;
-  box-shadow: 0 0 5px rgba(0,168,255,0.2);
+  border-color: #8e44ad;
+  box-shadow: 0 0 5px rgba(142, 68, 173, 0.3);
 }
 
+/* ✨ Buttons */
 button {
-  background: #00a8ff;
+  background: #8e44ad;
   color: #fff;
   border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-size: 1rem;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background: #0097e6;
+  background: #732d91;
+  transform: scale(1.05);
+}
+
+/* ✏ Edit & Delete Buttons */
+.edit-btn {
+  background: #44bd32;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.edit-btn:hover {
+  background: #2d9c21;
 }
 
 .delete-btn {
   background: #e84118;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 6px 10px;
-  cursor: pointer;
-  float: right;
-  font-size: 0.9rem;
-  transition: background 0.3s ease, transform 0.2s ease;
+  padding: 6px 12px;
+  font-size: 0.85rem;
 }
 
 .delete-btn:hover {
   background: #c23616;
-  transform: scale(1.05);
 }
 
-.note-item {
+/* 🪄 Edit Mode Container */
+.edit-container {
   display: flex;
-  justify-content: space-between;
+  gap: 8px;
   align-items: center;
+  background-color: #f0e9f7;
+  padding: 10px;
+  border-radius: 14px;
 }
 
-.edit-btn {
-  background: #44bd32;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 6px 10px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background 0.3s ease, transform 0.2s ease;
-  margin-right: 8px;
+.edit-input {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: #fff;
 }
 
-.edit-btn:hover {
-  background: #009432;
-  transform: scale(1.05);
+.edit-input:focus {
+  outline: none;
+  border-color: #8e44ad;
+  box-shadow: 0 0 4px rgba(142, 68, 173, 0.3);
 }
 
+.save-btn {
+  background-color: #3b82f6;
+}
+
+.save-btn:hover {
+  background-color: #2563eb;
+}
+
+.cancel-btn {
+  background-color: #ef4444;
+}
+
+.cancel-btn:hover {
+  background-color: #dc2626;
+}
+
+/* 📱 Responsive */
+@media (max-width: 500px) {
+  #noteForm,
+  .edit-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button {
+    width: 100%;
+  }
+}
