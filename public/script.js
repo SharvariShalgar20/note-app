@@ -1,24 +1,39 @@
+let allNotes = [];
+
 async function loadNotes() {
       const res = await fetch('/api/notes');
-      const notes = await res.json();
-      const list = document.getElementById('notes');
-      list.innerHTML = '';
-      notes.forEach(n => {
-        const li = document.createElement('li');
-        li.classList.add('note-item');
-        li.innerHTML = `
-          <div>
-            <strong>${n.text}</strong><br>
-            <small>Added on: ${n.time}</small>
-          </div>
-          <div class="btn-group">
-            <button class="edit-btn" onclick="editNote(${n.id}, '${escapeQuotes(n.text)}')">✏️</button>
-            <button class="delete-btn" onclick="deleteNote(${n.id})">🗑️</button>
-          </div>
-        `;
-        list.appendChild(li);
-      });
+      allNotes = await res.json();
+      displayNotes(allNotes);
 }
+
+function displayNotes(notes) {
+  const list = document.getElementById('notes');
+  list.innerHTML = '';
+  notes.forEach(n => {
+    const li = document.createElement('li');
+    li.classList.add('note-item');
+    li.innerHTML = `
+      <div>
+        <strong>${n.text}</strong><br>
+        <small>Added on: ${n.time}</small>
+      </div>
+      <div class="btn-group">
+        <button class="edit-btn" onclick="editNote(${n.id}, '${escapeQuotes(n.text)}')">✏️</button>
+        <button class="delete-btn" onclick="deleteNote(${n.id})">🗑️</button>
+      </div>
+    `;
+    list.appendChild(li);
+  });
+}
+
+function filterNotes() {
+  const query = document.getElementById('searchInput').value.toLowerCase();
+  const filtered = allNotes.filter(note => 
+    note.text.toLowerCase().includes(query)
+  );
+  displayNotes(filtered);
+}
+
 
 function escapeQuotes(text) {
   return text.replace(/'/g, "\\'");
