@@ -15,6 +15,8 @@ Traditional in spirit (keeping things simple and reliable) — yet ready for mod
 
 ✏️ Edit Notes – Update existing notes without re-adding them.
 
+🔍 Search Notes – Instantly find specific notes as you type with a real-time search bar.
+
 💾 JSON-based storage (local + easy setup).
 
 
