@@ -10,9 +10,9 @@ function displayNotes(notes) {
   const list = document.getElementById('notes');
   list.innerHTML = '';
 
-  const sortedNotes = [...notes].sort((a, b) => b.pinned - a.pinned);
+  const sortedNotes = [...notes].sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0));
 
-  notes.forEach(n => {
+  sortedNotes.forEach(n => {
     const li = document.createElement('li');
     li.classList.add('note-item');
     if (n.pinned) li.classList.add('pinned');
@@ -87,7 +87,7 @@ async function togglePin(id, newPinnedValue) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ pinned: newPinnedValue })
   });
-  loadNotes();
+  await loadNotes();
 }
 
 document.getElementById('noteForm').addEventListener('submit', async e => {
