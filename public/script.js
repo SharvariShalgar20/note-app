@@ -9,16 +9,25 @@ async function loadNotes() {
 function displayNotes(notes) {
   const list = document.getElementById('notes');
   list.innerHTML = '';
+
+  const sortedNotes = [...notes].sort((a, b) => b.pinned - a.pinned);
+
   notes.forEach(n => {
     const li = document.createElement('li');
     li.classList.add('note-item');
+    if (n.pinned) li.classList.add('pinned');
+
     li.innerHTML = `
       <div>
         <strong>${n.text}</strong><br>
         <small>Added on: ${n.time}</small>
       </div>
       <div class="btn-group">
+
+        <button class="pin-btn ${n.pinned ? 'active' : ''}" onclick="togglePin(${n.id}, ${!n.pinned})">📌</button>
+
         <button class="edit-btn" onclick="editNote(${n.id}, '${escapeQuotes(n.text)}')">✏️</button>
+
         <button class="delete-btn" onclick="deleteNote(${n.id})">🗑️</button>
       </div>
     `;
@@ -69,6 +78,15 @@ async function saveEdit(id) {
     body: JSON.stringify({ text: newText, time: newTime })
   });
 
+  loadNotes();
+}
+
+async function togglePin(id, newPinnedValue) {
+  await fetch(`/api/notes/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ pinned: newPinnedValue })
+  });
   loadNotes();
 }
 
